@@ -33,6 +33,37 @@ export default function Portfolio() {
     setIsLightboxOpen(true);
   };
 
+  // Helper to determine Bento Grid layout classes
+  const getProjectCardClasses = (index: number) => {
+    const baseClasses = "group relative rounded-2xl overflow-hidden border border-white/5 bg-dark-deep shadow-xl shadow-black/20 zoom-image-container cursor-pointer transition-all duration-300 hover:border-gold/30 hover:shadow-gold/5 w-full h-full";
+    
+    if (activeCategory !== "Semua") {
+      return `${baseClasses} aspect-[4/3]`;
+    }
+
+    // Bento layout classes based on index (0-8) on desktop (lg), fallback to aspect-[4/3] on mobile/tablet
+    switch (index) {
+      case 0: // Wide (row 1, cols 1-2)
+        return `${baseClasses} lg:col-span-2 lg:row-span-1 aspect-[4/3] lg:aspect-auto`;
+      case 1: // Tall (row 1-2, col 3)
+        return `${baseClasses} lg:col-span-1 lg:row-span-2 aspect-[4/3] lg:aspect-auto`;
+      case 2: // Square (row 2, col 1)
+      case 3: // Square (row 2, col 2)
+        return `${baseClasses} lg:col-span-1 lg:row-span-1 aspect-[4/3] lg:aspect-auto`;
+      case 4: // Tall (row 3-4, col 1)
+        return `${baseClasses} lg:col-span-1 lg:row-span-2 aspect-[4/3] lg:aspect-auto`;
+      case 5: // Wide (row 3, cols 2-3)
+        return `${baseClasses} lg:col-span-2 lg:row-span-1 aspect-[4/3] lg:aspect-auto`;
+      case 6: // Square (row 4, col 2)
+      case 7: // Square (row 4, col 3)
+        return `${baseClasses} lg:col-span-1 lg:row-span-1 aspect-[4/3] lg:aspect-auto`;
+      case 8: // Ultra-wide Banner (row 5, cols 1-3)
+        return `${baseClasses} lg:col-span-3 lg:row-span-1 aspect-[4/3] lg:aspect-auto`;
+      default:
+        return `${baseClasses} aspect-[4/3]`;
+    }
+  };
+
   return (
     <section id="portfolio" className="relative py-24 bg-dark-deep overflow-hidden">
       {/* Background radial highlight */}
@@ -70,10 +101,12 @@ export default function Portfolio() {
         {/* Gallery Grid */}
         <motion.div
           layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 ${
+            activeCategory === "Semua" ? "lg:auto-rows-[280px] lg:grid-flow-row-dense" : ""
+          }`}
         >
           <AnimatePresence mode="popLayout">
-            {filteredProjects.map((project) => (
+            {filteredProjects.map((project, index) => (
               <motion.div
                 key={project.id}
                 layout
@@ -81,7 +114,7 @@ export default function Portfolio() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="group relative aspect-[4/3] rounded-lg overflow-hidden border border-white/5 bg-dark-deep shadow-xl shadow-black/20 zoom-image-container cursor-pointer"
+                className={getProjectCardClasses(index)}
                 onClick={() => handleOpenProject(project)}
               >
                 {/* Visual Image */}
