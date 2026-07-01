@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { label: "Beranda", href: "#beranda" },
@@ -93,20 +94,21 @@ export default function Navbar() {
             : "bg-transparent py-6 border-b border-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 md:px-8 flex items-center justify-between">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-12 flex items-center justify-between">
           {/* Logo */}
           <a
             href="#beranda"
             onClick={(e) => handleNavClick(e, "#beranda")}
             className="flex items-center gap-2 group cursor-pointer"
           >
-            <div className="border border-gold py-1.5 px-2 text-center flex flex-col justify-center items-center">
-              <span className="font-serif text-xs md:text-sm font-semibold tracking-[0.2em] text-gold leading-none">
-                FURNITURE
-              </span>
-              <span className="font-sans text-[7px] md:text-[8px] font-bold tracking-[0.3em] text-white leading-none mt-1">
-                AKHIR ZAMAN
-              </span>
+            <div className="relative h-10 w-44 md:h-12 md:w-52">
+              <Image
+                src="/images/logofurniture.jpg"
+                alt="Furniture Akhir Zaman"
+                fill
+                priority
+                className="object-contain object-left rounded-sm"
+              />
             </div>
           </a>
 

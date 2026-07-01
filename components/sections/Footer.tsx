@@ -2,6 +2,7 @@
 
 import { Instagram, Facebook, Youtube, Phone, Mail, MapPin, ArrowUp, Send } from "lucide-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const QUICK_LINKS = [
   { label: "Beranda", href: "#beranda" },
@@ -62,18 +63,18 @@ export default function Footer() {
       {/* Background Radial Glow */}
       <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-gold/3 blur-[90px] pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 pb-16 border-b border-white/5">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 pb-16 border-b border-white/5">
         
         {/* Brand Information Column */}
         <div className="lg:col-span-4 space-y-6">
           {/* Logo */}
-          <div className="border border-gold py-2 px-3 text-center flex flex-col justify-center items-center w-fit">
-            <span className="font-serif text-sm font-semibold tracking-[0.22em] text-gold leading-none">
-              FURNITURE
-            </span>
-            <span className="font-sans text-[8px] font-bold tracking-[0.32em] text-white leading-none mt-1">
-              AKHIR ZAMAN
-            </span>
+          <div className="relative h-10 w-44 md:h-12 md:w-52">
+            <Image
+              src="/images/logofurniture.jpg"
+              alt="Furniture Akhir Zaman"
+              fill
+              className="object-contain object-left rounded-sm"
+            />
           </div>
 
           <p className="text-sm text-slate-400 leading-relaxed font-sans mt-4 max-w-sm">
@@ -187,7 +188,7 @@ export default function Footer() {
       </div>
 
       {/* Copyrights / Back To Top */}
-      <div className="max-w-7xl mx-auto px-6 md:px-8 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-sans">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-sans">
         <p className="text-center md:text-left">
           © {new Date().getFullYear()} Furniture Akhir Zaman. All Rights Reserved.
         </p>

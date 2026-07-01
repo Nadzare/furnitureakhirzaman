@@ -38,7 +38,7 @@ export default function Portfolio() {
       {/* Background radial highlight */}
       <div className="absolute top-1/2 right-0 w-[450px] h-[450px] bg-gold/3 blur-[120px] pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-8">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-12">
         
         {/* Section Title */}
         <SectionHeader

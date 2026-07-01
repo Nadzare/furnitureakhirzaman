@@ -25,17 +25,18 @@ export default function WhyChooseUs() {
   };
 
   return (
-    <section className="relative py-24 bg-dark-slate overflow-hidden">
+    <section className="relative py-24 bg-slate-50 overflow-hidden">
       {/* Background decoration blur */}
-      <div className="absolute top-1/4 right-0 w-[300px] h-[300px] bg-gold/3 blur-[90px] pointer-events-none"></div>
+      <div className="absolute top-1/4 right-0 w-[300px] h-[300px] bg-gold/5 blur-[120px] pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-8">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-12">
         
         {/* Section Header */}
         <SectionHeader
           subtitle="Kenapa Memilih Kami"
           title="Komitmen Kami Untuk Hasil Yang Sempurna"
           description="Kami menyatukan nilai seni, keahlian teknis tingkat tinggi, dan integritas kerja untuk memberikan kepuasan maksimal di setiap detail interior Anda."
+          lightTheme={true}
         />
 
         {/* Benefits Grid */}
@@ -53,30 +54,30 @@ export default function WhyChooseUs() {
               <motion.div
                 key={benefit.id}
                 variants={cardVariants}
-                className="glass-card p-8 rounded-xl border border-white/5 bg-dark-deep/40 relative overflow-hidden group flex flex-col justify-between min-h-[220px]"
+                className="p-8 rounded-xl border border-slate-100 bg-white shadow-md shadow-slate-150/40 relative overflow-hidden group flex flex-col justify-between min-h-[220px] hover:border-gold/45 hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300"
               >
                 {/* Gold glowing line border overlay */}
                 <div className="absolute left-0 bottom-0 w-[3px] h-0 bg-gold group-hover:h-full transition-all duration-300"></div>
 
                 <div className="space-y-4">
                   {/* Icon Container */}
-                  <div className="text-gold w-10 h-10 flex items-center justify-center bg-dark-slate rounded-lg border border-gold/15 group-hover:border-gold/40 transition-colors duration-300">
+                  <div className="text-gold w-10 h-10 flex items-center justify-center bg-slate-50 rounded-lg border border-slate-100 group-hover:border-gold/30 group-hover:bg-gold-muted transition-colors duration-300">
                     <IconComponent className="w-5 h-5" />
                   </div>
 
                   {/* Title & Description */}
                   <div className="space-y-2">
-                    <h3 className="font-serif text-lg font-semibold text-white group-hover:text-gold transition-colors duration-300">
+                    <h3 className="font-serif text-lg font-semibold text-dark-deep group-hover:text-gold-dark transition-colors duration-300">
                       {benefit.title}
                     </h3>
-                    <p className="text-xs text-slate-400 leading-relaxed font-sans">
+                    <p className="text-xs text-slate-600 leading-relaxed font-sans">
                       {benefit.description}
                     </p>
                   </div>
                 </div>
 
                 <div className="pt-4 flex justify-end">
-                  <span className="text-[10px] uppercase font-bold text-gold/30 group-hover:text-gold/80 tracking-wider transition-colors duration-300 font-sans">
+                  <span className="text-[10px] uppercase font-bold text-gold-dark/40 group-hover:text-gold tracking-wider transition-colors duration-300 font-sans">
                     Standar Mewah
                   </span>
                 </div>

@@ -1,6 +1,5 @@
 import Navbar from "@/components/sections/Navbar";
 import Hero from "@/components/sections/Hero";
-import Statistics from "@/components/sections/Statistics";
 import About from "@/components/sections/About";
 import Services from "@/components/sections/Services";
 import Portfolio from "@/components/sections/Portfolio";
@@ -20,9 +19,6 @@ export default function Home() {
       <main className="flex-1 flex flex-col">
         {/* Entrance Intro Block */}
         <Hero />
-
-        {/* Core Metrics Grid */}
-        <Statistics />
 
         {/* Company Overview & Overlapping Collage */}
         <About />

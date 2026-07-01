@@ -31,12 +31,12 @@ export default function About() {
   return (
     <section
       id="tentang-kami"
-      className="relative py-24 bg-dark-slate overflow-hidden"
+      className="relative py-24 bg-white overflow-hidden"
     >
       {/* Background glow */}
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-gold/3 blur-[100px] pointer-events-none"></div>
+      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-gold/5 blur-[120px] pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-8 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-12 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
         
         {/* Left Column: Image Collage */}
         <div className="lg:col-span-6 relative h-[450px] sm:h-[600px] w-full flex items-center justify-center">
@@ -47,7 +47,7 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="absolute left-0 top-0 w-3/5 h-[80%] rounded-lg overflow-hidden border border-white/5 shadow-2xl"
+            className="absolute left-0 top-0 w-3/5 h-[80%] rounded-lg overflow-hidden border border-slate-100 shadow-xl shadow-slate-200/50"
           >
             <Image
               src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=600&h=800&q=80"
@@ -64,7 +64,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="absolute right-0 top-8 w-1/2 h-[55%] rounded-lg overflow-hidden border border-gold/10 shadow-2xl z-10"
+            className="absolute right-0 top-8 w-1/2 h-[55%] rounded-lg overflow-hidden border border-gold/20 shadow-xl shadow-slate-200/50 z-10"
           >
             <Image
               src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=500&h=500&q=80"
@@ -81,9 +81,9 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="absolute right-12 bottom-0 w-[45%] h-[45%] rounded-lg overflow-hidden border border-white/10 shadow-2xl z-20"
+            className="absolute right-12 bottom-0 w-[45%] h-[45%] rounded-lg overflow-hidden border border-slate-100 shadow-xl shadow-slate-200/50 z-20"
           >
-            <div className="absolute inset-0 bg-gradient-to-t from-dark-deep/50 to-transparent z-10"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-dark-deep/30 to-transparent z-10"></div>
             <Image
               src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=400&h=400&q=80"
               alt="Luxury Master Bedroom Detail"
@@ -109,14 +109,14 @@ export default function About() {
             <span className="text-xs font-semibold tracking-[0.2em] text-gold uppercase block">
               Tentang Kami
             </span>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight tracking-tight">
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-dark-deep leading-tight tracking-tight">
               Solusi Interior Custom <br />
               Dengan Kualitas Terbaik
             </h2>
-            <p className="text-base text-slate-300 leading-relaxed font-sans mt-4">
-              <strong>Furniture Akhir Zaman</strong> adalah perusahaan penyedia jasa interior design, build & renovation yang berkomitmen menghadirkan karya terbaik. Kami memadukan nilai estetika modern dengan fungsionalitas ruang yang tinggi.
+            <p className="text-base text-slate-600 leading-relaxed font-sans mt-4">
+              <strong className="text-dark-deep font-semibold">Furniture Akhir Zaman</strong> adalah perusahaan penyedia jasa interior design, build & renovation yang berkomitmen menghadirkan karya terbaik. Kami memadukan nilai estetika modern dengan fungsionalitas ruang yang tinggi.
             </p>
-            <p className="text-base text-slate-400 leading-relaxed font-sans">
+            <p className="text-base text-slate-500 leading-relaxed font-sans">
               Setiap proyek dikerjakan secara custom, disesuaikan dengan kebutuhan dan kepribadian pemilik hunian. Menggunakan material berkualitas pilihan serta detail pengerjaan yang rapi untuk menghasilkan interior berkelas dan tahan lama.
             </p>
           </motion.div>
@@ -130,7 +130,7 @@ export default function About() {
             className="grid grid-cols-1 sm:grid-cols-2 gap-4"
           >
             {HIGHLIGHTS.map((item, index) => (
-              <div key={index} className="flex items-center gap-3 text-slate-200">
+              <div key={index} className="flex items-center gap-3 text-slate-700">
                 <CheckCircle2 className="w-5 h-5 text-gold flex-shrink-0" />
                 <span className="text-sm font-medium font-sans">{item}</span>
               </div>

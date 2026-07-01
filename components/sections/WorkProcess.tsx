@@ -25,24 +25,25 @@ export default function WorkProcess() {
   };
 
   return (
-    <section id="proses" className="relative py-24 bg-dark-deep overflow-hidden">
+    <section id="proses" className="relative py-24 bg-white overflow-hidden">
       {/* Subtle background glow */}
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gold/3 blur-[120px] pointer-events-none"></div>
+      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-gold/5 blur-[120px] pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-8">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-12">
         
         {/* Section Header */}
         <SectionHeader
           subtitle="Proses Kerja"
           title="Alur Pengerjaan Yang Sistematis & Terstruktur"
           description="Komitmen kami untuk memberikan hasil akhir terbaik diwujudkan melalui alur kerja profesional yang terarah dari awal hingga akhir."
+          lightTheme={true}
         />
 
         {/* Timeline Container */}
         <div className="relative mt-8">
           
           {/* Connecting Line - Desktop Only */}
-          <div className="hidden lg:block absolute top-[44px] left-[5%] right-[5%] h-[1.5px] border-t border-dashed border-gold/30 z-0"></div>
+          <div className="hidden lg:block absolute top-[44px] left-[5%] right-[5%] h-[1.5px] border-t border-dashed border-gold/40 z-0"></div>
 
           {/* Timeline Grid (Desktop Horizontal, Mobile Vertical) */}
           <motion.div
@@ -69,12 +70,12 @@ export default function WorkProcess() {
                     <div className="absolute inset-0 bg-gold/15 rounded-full scale-100 group-hover:scale-130 opacity-0 group-hover:opacity-100 transition-all duration-500 z-0"></div>
 
                     {/* Node Circle */}
-                    <div className="w-[88px] h-[88px] rounded-full bg-dark-slate border-2 border-gold flex items-center justify-center text-gold relative z-10 shadow-lg group-hover:bg-gold group-hover:text-dark-deep transition-all duration-300">
+                    <div className="w-[88px] h-[88px] rounded-full bg-slate-50 border-2 border-gold flex items-center justify-center text-gold relative z-10 shadow-md group-hover:bg-gold group-hover:text-dark-deep transition-all duration-300">
                       <IconComponent className="w-8 h-8" />
                     </div>
 
                     {/* Step Number Badge */}
-                    <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-gold text-dark-deep font-sans text-[10px] font-bold flex items-center justify-center border border-dark-deep z-20 group-hover:bg-white group-hover:text-dark-deep transition-colors duration-300">
+                    <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-gold text-dark-deep font-sans text-[10px] font-bold flex items-center justify-center border border-white z-20 group-hover:bg-dark-deep group-hover:text-white transition-colors duration-300">
                       {step.stepNumber}
                     </div>
 
@@ -82,15 +83,15 @@ export default function WorkProcess() {
 
                   {/* Connecting Line - Mobile/Tablet (Visible on small screens, between grids) */}
                   {index < WORK_PROCESS_DATA.length - 1 && (
-                    <div className="lg:hidden w-[1.5px] h-8 border-l border-dashed border-gold/30 my-2"></div>
+                    <div className="lg:hidden w-[1.5px] h-8 border-l border-dashed border-gold/40 my-2"></div>
                   )}
 
                   {/* Title & Description */}
                   <div className="space-y-2 pt-2">
-                    <h3 className="font-serif text-lg font-semibold text-white group-hover:text-gold transition-colors duration-300">
+                    <h3 className="font-serif text-lg font-semibold text-dark-deep group-hover:text-gold-dark transition-colors duration-300">
                       {step.title}
                     </h3>
-                    <p className="text-xs text-slate-400 font-sans leading-relaxed px-4 md:px-0">
+                    <p className="text-xs text-slate-600 font-sans leading-relaxed px-4 md:px-0">
                       {step.description}
                     </p>
                   </div>
