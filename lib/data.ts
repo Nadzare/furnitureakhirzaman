@@ -271,5 +271,32 @@ export const TESTIMONIALS_DATA: TestimonialItem[] = [
     quote: "Pekerjaan cepat, rapi, dan komunikatif. Sangat direkomendasikan untuk yang mencari jasa interior berkelas di Purwokerto. Kamar utama saya kini serasa hotel bintang lima.",
     rating: 5,
     imageUrl: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&h=150&q=80"
+  },
+  {
+    id: "test-4",
+    name: "Siti Rahma",
+    role: "Pemilik Bisnis Kafe",
+    location: "Sleman, Yogyakarta",
+    quote: "Pengerjaan furniture custom untuk kafe kami selesai tepat waktu dengan hasil presisi yang sangat memukau. Klien kami sering memuji keindahan interior kafe kami.",
+    rating: 5,
+    imageUrl: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&h=150&q=80"
+  },
+  {
+    id: "test-5",
+    name: "Hendra Wijaya",
+    role: "Pemilik Villa",
+    location: "Kaliurang, Yogyakarta",
+    quote: "Pembuatan wardrobe dan panel dinding di villa kami sangat mewah dan detail. Finishing-nya halus sekali, tim bekerja rapi dan bersih setelah instalasi selesai.",
+    rating: 5,
+    imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80"
+  },
+  {
+    id: "test-6",
+    name: "Maria Utami",
+    role: "Pemilik Rumah",
+    location: "Pondok Indah, Jakarta",
+    quote: "Sangat puas dengan renovasi ruang keluarga kami. Desain 3D dari desainer sangat mirip dengan hasil jadinya. Layanan purna jualnya juga responsif sekali.",
+    rating: 5,
+    imageUrl: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&h=150&q=80"
   }
 ];

@@ -54,30 +54,30 @@ export default function WhyChooseUs() {
               <motion.div
                 key={benefit.id}
                 variants={cardVariants}
-                className="p-8 rounded-xl border border-slate-100 bg-white shadow-md shadow-slate-150/40 relative overflow-hidden group flex flex-col justify-between min-h-[220px] hover:border-gold/45 hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300"
+                className="p-8 rounded-xl border border-soft-border bg-white shadow-md shadow-soft-border/10 relative overflow-hidden group flex flex-col justify-between min-h-[220px] hover:border-gold hover:shadow-xl hover:shadow-soft-border/30 transition-all duration-300"
               >
                 {/* Gold glowing line border overlay */}
                 <div className="absolute left-0 bottom-0 w-[3px] h-0 bg-gold group-hover:h-full transition-all duration-300"></div>
 
                 <div className="space-y-4">
                   {/* Icon Container */}
-                  <div className="text-gold w-10 h-10 flex items-center justify-center bg-slate-50 rounded-lg border border-slate-100 group-hover:border-gold/30 group-hover:bg-gold-muted transition-colors duration-300">
+                  <div className="text-gold w-10 h-10 flex items-center justify-center bg-light-bg rounded-lg border border-soft-border group-hover:border-gold/30 group-hover:bg-gold-muted transition-colors duration-300">
                     <IconComponent className="w-5 h-5" />
                   </div>
 
                   {/* Title & Description */}
                   <div className="space-y-2">
-                    <h3 className="font-serif text-lg font-semibold text-dark-deep group-hover:text-gold-dark transition-colors duration-300">
+                    <h3 className="font-serif text-lg font-semibold text-txt-primary group-hover:text-gold transition-colors duration-300">
                       {benefit.title}
                     </h3>
-                    <p className="text-xs text-slate-600 leading-relaxed font-sans">
+                    <p className="text-xs text-txt-secondary leading-relaxed font-sans">
                       {benefit.description}
                     </p>
                   </div>
                 </div>
 
                 <div className="pt-4 flex justify-end">
-                  <span className="text-[10px] uppercase font-bold text-gold-dark/40 group-hover:text-gold tracking-wider transition-colors duration-300 font-sans">
+                  <span className="text-[10px] uppercase font-bold text-gold/45 group-hover:text-gold tracking-wider transition-colors duration-300 font-sans">
                     Standar Mewah
                   </span>
                 </div>

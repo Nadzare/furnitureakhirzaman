@@ -37,8 +37,7 @@ export default function SectionHeader({
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className={`flex flex-col max-w-3xl mx-auto mb-16 ${getAlignClasses()}`}
     >
-      <span className="text-xs font-semibold tracking-[0.2em] text-gold uppercase mb-3 inline-flex items-center gap-2">
-        <span className="w-1.5 h-1.5 bg-gold rounded-full inline-block animate-pulse"></span>
+      <span className="text-xs font-semibold tracking-[0.2em] text-gold uppercase mb-3 block">
         {subtitle}
       </span>
       <h2
@@ -51,7 +50,7 @@ export default function SectionHeader({
       {description && (
         <p
           className={`text-base md:text-lg leading-relaxed ${
-            lightTheme ? "text-slate-600" : "text-slate-400"
+            lightTheme ? "text-txt-secondary" : "text-light-bg/70"
           }`}
         >
           {description}

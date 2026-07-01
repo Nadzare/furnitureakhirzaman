@@ -34,7 +34,7 @@ export default function Portfolio() {
   };
 
   return (
-    <section id="portfolio" className="relative py-24 bg-dark-slate overflow-hidden">
+    <section id="portfolio" className="relative py-24 bg-dark-deep overflow-hidden">
       {/* Background radial highlight */}
       <div className="absolute top-1/2 right-0 w-[450px] h-[450px] bg-gold/3 blur-[120px] pointer-events-none"></div>
 
@@ -57,8 +57,8 @@ export default function Portfolio() {
                 onClick={() => setActiveCategory(category)}
                 className={`px-5 py-2.5 text-xs md:text-sm font-sans font-semibold tracking-wider rounded-full transition-all duration-300 border uppercase cursor-pointer ${
                   isActive
-                    ? "bg-gold border-gold text-dark-deep shadow-lg shadow-gold/15"
-                    : "bg-dark-deep border-white/5 text-slate-300 hover:text-gold hover:border-gold/30"
+                    ? "bg-gold border-gold text-white shadow-lg shadow-gold/15"
+                    : "bg-dark-card/50 border-white/10 text-slate-300 hover:text-gold hover:border-gold/45"
                 }`}
               >
                 {category}

@@ -90,7 +90,7 @@ export default function Navbar() {
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
           isScrolled
-            ? "bg-dark-deep/90 backdrop-blur-md border-b border-white/5 py-4 shadow-xl shadow-black/20"
+            ? "bg-white/95 backdrop-blur-md border-b border-soft-border py-4 shadow-sm"
             : "bg-transparent py-6 border-b border-transparent"
         }`}
       >
@@ -99,16 +99,30 @@ export default function Navbar() {
           <a
             href="#beranda"
             onClick={(e) => handleNavClick(e, "#beranda")}
-            className="flex items-center gap-2 group cursor-pointer"
+            className="flex items-center gap-3 group cursor-pointer"
           >
-            <div className="relative h-10 w-44 md:h-12 md:w-52">
+            {/* Logo Icon */}
+            <div className="relative h-10 w-10 md:h-11 md:w-11 flex-shrink-0 overflow-hidden">
               <Image
-                src="/images/logofurniture.jpg"
-                alt="Furniture Akhir Zaman"
+                src="/images/logfur.png"
+                alt="Furniture Akhir Zaman Icon"
                 fill
                 priority
-                className="object-contain object-left rounded-sm"
+                className="object-cover scale-110"
               />
+            </div>
+            {/* Logo Text */}
+            <div className="flex flex-col justify-center leading-none">
+              <span className={`font-serif text-sm md:text-base font-bold tracking-[0.08em] transition-colors duration-300 ${
+                isScrolled ? "text-txt-primary group-hover:text-gold" : "text-white group-hover:text-gold"
+              }`}>
+                FURNITURE
+              </span>
+              <span className={`font-serif text-[10px] md:text-[11px] font-bold tracking-[0.12em] transition-colors duration-300 mt-1 ${
+                isScrolled ? "text-txt-primary group-hover:text-gold" : "text-white/90 group-hover:text-gold"
+              }`}>
+                AKHIR ZAMAN
+              </span>
             </div>
           </a>
 
@@ -122,7 +136,11 @@ export default function Navbar() {
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
                   className={`relative font-sans text-xs uppercase tracking-widest font-semibold transition-all duration-300 py-1.5 cursor-pointer ${
-                    isActive ? "text-gold" : "text-white/80 hover:text-gold"
+                    isActive
+                      ? "text-gold"
+                      : isScrolled
+                      ? "text-txt-primary hover:text-gold"
+                      : "text-white/80 hover:text-gold"
                   }`}
                 >
                   {link.label}
@@ -142,7 +160,7 @@ export default function Navbar() {
           <div className="hidden lg:flex items-center">
             <button
               onClick={handleCTAClick}
-              className="group flex items-center gap-2 py-2 px-5 bg-transparent hover:bg-gold border border-gold hover:border-gold text-gold hover:text-dark-deep font-sans font-semibold text-xs tracking-wider uppercase rounded-md transition-all duration-300 cursor-pointer"
+              className="group flex items-center gap-2 py-2 px-5 bg-gold hover:bg-gold-dark border border-gold hover:border-gold-dark text-white font-sans font-semibold text-xs tracking-wider uppercase rounded-md transition-all duration-300 cursor-pointer"
             >
               Konsultasi Gratis
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -152,7 +170,9 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-white hover:text-gold transition-colors focus:outline-none cursor-pointer"
+            className={`lg:hidden p-2 transition-colors focus:outline-none cursor-pointer ${
+              isScrolled ? "text-txt-primary hover:text-gold" : "text-white hover:text-gold"
+            }`}
             aria-label="Toggle Menu"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

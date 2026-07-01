@@ -31,7 +31,7 @@ export default function About() {
   return (
     <section
       id="tentang-kami"
-      className="relative py-24 bg-white overflow-hidden"
+      className="relative py-24 bg-light-bg overflow-hidden"
     >
       {/* Background glow */}
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full bg-gold/5 blur-[120px] pointer-events-none"></div>
@@ -109,14 +109,14 @@ export default function About() {
             <span className="text-xs font-semibold tracking-[0.2em] text-gold uppercase block">
               Tentang Kami
             </span>
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-dark-deep leading-tight tracking-tight">
+            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-semibold text-txt-primary leading-tight tracking-tight">
               Solusi Interior Custom <br />
               Dengan Kualitas Terbaik
             </h2>
-            <p className="text-base text-slate-600 leading-relaxed font-sans mt-4">
-              <strong className="text-dark-deep font-semibold">Furniture Akhir Zaman</strong> adalah perusahaan penyedia jasa interior design, build & renovation yang berkomitmen menghadirkan karya terbaik. Kami memadukan nilai estetika modern dengan fungsionalitas ruang yang tinggi.
+            <p className="text-base text-txt-secondary leading-relaxed font-sans mt-4">
+              <strong className="text-txt-primary font-semibold">Furniture Akhir Zaman</strong> adalah perusahaan penyedia jasa interior design, build & renovation yang berkomitmen menghadirkan karya terbaik. Kami memadukan nilai estetika modern dengan fungsionalitas ruang yang tinggi.
             </p>
-            <p className="text-base text-slate-500 leading-relaxed font-sans">
+            <p className="text-base text-txt-secondary leading-relaxed font-sans">
               Setiap proyek dikerjakan secara custom, disesuaikan dengan kebutuhan dan kepribadian pemilik hunian. Menggunakan material berkualitas pilihan serta detail pengerjaan yang rapi untuk menghasilkan interior berkelas dan tahan lama.
             </p>
           </motion.div>
@@ -130,7 +130,7 @@ export default function About() {
             className="grid grid-cols-1 sm:grid-cols-2 gap-4"
           >
             {HIGHLIGHTS.map((item, index) => (
-              <div key={index} className="flex items-center gap-3 text-slate-700">
+              <div key={index} className="flex items-center gap-3 text-txt-primary">
                 <CheckCircle2 className="w-5 h-5 text-gold flex-shrink-0" />
                 <span className="text-sm font-medium font-sans">{item}</span>
               </div>
@@ -147,7 +147,7 @@ export default function About() {
           >
             <button
               onClick={() => handleScrollTo("portfolio")}
-              className="group inline-flex items-center gap-2 py-3 px-6 bg-gold hover:bg-gold-light text-dark-deep font-sans font-semibold text-sm rounded-lg transition-all duration-300 cursor-pointer shadow-lg hover:shadow-gold/25"
+              className="group inline-flex items-center gap-2 py-3 px-6 bg-gold hover:bg-gold-dark text-white font-sans font-semibold text-sm rounded-lg transition-all duration-300 cursor-pointer shadow-lg shadow-gold/10 hover:shadow-gold/25"
             >
               Selengkapnya Tentang Kami
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
