@@ -33,39 +33,43 @@ export default function StatisticsEditor() {
   };
 
   return (
-    <div className="space-y-6 max-w-4xl">
+    <div className="space-y-6 max-w-4xl min-w-0">
       {form.map((stat, index) => (
         <SectionCard
           key={stat.id}
           title={`Statistik ${index + 1}`}
           description={`ID: ${stat.id}`}
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <FormField label="Nilai" hint="Contoh: 500+, 7+, 100%">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4.5">
+            <FormField label="Nilai / Angka" hint="Contoh: 500+, 7+, 100%">
               <TextInput
                 value={stat.value}
                 onChange={(v) => updateStat(index, "value", v)}
+                placeholder="500+"
               />
             </FormField>
 
-            <FormField label="Label">
+            <FormField label="Label Utama">
               <TextInput
                 value={stat.label}
                 onChange={(v) => updateStat(index, "label", v)}
+                placeholder="Proyek Selesai"
               />
             </FormField>
 
-            <FormField label="Sub Label" hint="Opsional">
+            <FormField label="Sub Label" hint="Keterangan tambahan (opsional)">
               <TextInput
                 value={stat.subLabel || ""}
                 onChange={(v) => updateStat(index, "subLabel", v)}
+                placeholder="Hunian & Komersial"
               />
             </FormField>
 
-            <FormField label="Nama Icon" hint="Lucide React icon name">
+            <FormField label="Nama Icon" hint="Icon Lucide (CheckCircle, Users...)">
               <TextInput
                 value={stat.iconName}
                 onChange={(v) => updateStat(index, "iconName", v)}
+                placeholder="CheckCircle"
               />
             </FormField>
           </div>

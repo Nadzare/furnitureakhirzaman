@@ -52,16 +52,16 @@ export default function ServicesEditor() {
   };
 
   return (
-    <div className="space-y-6 max-w-4xl">
+    <div className="space-y-6 max-w-4xl min-w-0">
       <SectionCard
         title="Daftar Layanan"
-        description={`Total: ${form.length} layanan`}
+        description={`Total: ${form.length} layanan aktif`}
       >
-        <div className="space-y-3">
+        <div className="space-y-2.5 sm:space-y-3">
           {form.map((service, index) => (
             <div
               key={service.id}
-              className="border border-[#E8E1D8] rounded-lg overflow-hidden"
+              className="border border-[#E8E1D8] rounded-xl overflow-hidden bg-white shadow-2xs"
             >
               {/* Collapsed header */}
               <div
@@ -76,56 +76,62 @@ export default function ServicesEditor() {
                     setExpandedIndex(expandedIndex === index ? null : index);
                   }
                 }}
-                className="w-full flex items-center justify-between px-4 py-3 bg-[#FAFAF8] hover:bg-[#F5F3F0] transition-colors cursor-pointer"
+                className="w-full flex items-center justify-between px-3 sm:px-4 py-3 bg-[#FAFAF8] hover:bg-[#F5F3F0] transition-colors cursor-pointer gap-2"
               >
-                <div className="flex items-center gap-3">
-                  <span className="text-[10px] font-sans font-bold text-[#B08B57]/60 bg-[#B08B57]/10 px-2 py-0.5 rounded">
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <span className="text-[10px] font-sans font-bold text-[#B08B57] bg-[#B08B57]/10 px-2 py-0.5 rounded flex-shrink-0">
                     {String(index + 1).padStart(2, "0")}
                   </span>
-                  <span className="text-sm font-sans font-medium text-[#3A2F26]/70">
+                  <span className="text-xs sm:text-sm font-sans font-semibold text-[#3A2F26]/75 truncate max-w-[160px] xs:max-w-[240px] sm:max-w-none">
                     {service.title || "Layanan Baru"}
                   </span>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
                       removeService(index);
                     }}
-                    className="p-1.5 text-[#3A2F26]/20 hover:text-red-500 transition-colors cursor-pointer"
+                    aria-label={`Hapus layanan ${service.title || index + 1}`}
+                    className="p-1.5 sm:p-2 text-[#3A2F26]/30 hover:text-red-500 rounded-lg hover:bg-red-50 transition-colors cursor-pointer"
                   >
-                    <Trash2 className="w-3.5 h-3.5" />
+                    <Trash2 className="w-4 h-4" />
                   </button>
-                  {expandedIndex === index ? (
-                    <ChevronUp className="w-4 h-4 text-[#3A2F26]/30" />
-                  ) : (
-                    <ChevronDown className="w-4 h-4 text-[#3A2F26]/30" />
-                  )}
+                  <div className="p-1 text-[#3A2F26]/30">
+                    {expandedIndex === index ? (
+                      <ChevronUp className="w-4 h-4" />
+                    ) : (
+                      <ChevronDown className="w-4 h-4" />
+                    )}
+                  </div>
                 </div>
               </div>
 
               {/* Expanded content */}
               {expandedIndex === index && (
-                <div className="px-4 py-5 space-y-4 border-t border-[#E8E1D8] bg-white">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="px-3.5 sm:px-5 py-4 sm:py-5 space-y-3.5 sm:space-y-4 border-t border-[#E8E1D8] bg-white">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                     <FormField label="Judul Layanan">
                       <TextInput
                         value={service.title}
                         onChange={(v) => updateService(index, "title", v)}
+                        placeholder="Contoh: Custom Furniture"
                       />
                     </FormField>
-                    <FormField label="Nama Icon" hint="Lucide icon name">
+                    <FormField label="Nama Icon" hint="Nama icon Lucide React">
                       <TextInput
                         value={service.iconName}
                         onChange={(v) => updateService(index, "iconName", v)}
+                        placeholder="PenTool, Sofa, Paintbrush..."
                       />
                     </FormField>
                   </div>
-                  <FormField label="Deskripsi">
+                  <FormField label="Deskripsi Layanan">
                     <TextArea
                       value={service.description}
                       onChange={(v) => updateService(index, "description", v)}
                       rows={3}
+                      placeholder="Jelaskan detail layanan..."
                     />
                   </FormField>
                 </div>
@@ -136,7 +142,7 @@ export default function ServicesEditor() {
 
         <button
           onClick={addService}
-          className="flex items-center gap-2 text-[#B08B57] text-sm font-sans font-medium hover:text-[#C4A26F] transition-colors cursor-pointer mt-2"
+          className="flex items-center gap-2 text-[#B08B57] text-sm font-sans font-medium hover:text-[#C4A26F] transition-colors cursor-pointer mt-3 pt-1"
         >
           <Plus className="w-4 h-4" />
           Tambah Layanan

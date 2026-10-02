@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import Image from "next/image";
 import { useCMS } from "@/lib/cms-store";
 import {
   SectionCard,
@@ -36,7 +37,7 @@ export default function HeroEditor() {
   };
 
   return (
-    <div className="space-y-6 max-w-4xl">
+    <div className="space-y-6 max-w-4xl min-w-0">
       <SectionCard
         title="Konten Utama"
         description="Heading, subtitle, dan deskripsi yang tampil di bagian atas website."
@@ -77,19 +78,21 @@ export default function HeroEditor() {
         title="Tombol CTA"
         description="Teks tombol aksi utama dan tombol sekunder."
       >
-        <FormField label="Teks Tombol Utama">
-          <TextInput
-            value={form.ctaText}
-            onChange={(v) => update("ctaText", v)}
-          />
-        </FormField>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+          <FormField label="Teks Tombol Utama">
+            <TextInput
+              value={form.ctaText}
+              onChange={(v) => update("ctaText", v)}
+            />
+          </FormField>
 
-        <FormField label="Teks Tombol Sekunder">
-          <TextInput
-            value={form.ctaSecondaryText}
-            onChange={(v) => update("ctaSecondaryText", v)}
-          />
-        </FormField>
+          <FormField label="Teks Tombol Sekunder">
+            <TextInput
+              value={form.ctaSecondaryText}
+              onChange={(v) => update("ctaSecondaryText", v)}
+            />
+          </FormField>
+        </div>
       </SectionCard>
 
       <SectionCard
@@ -103,12 +106,26 @@ export default function HeroEditor() {
           />
         </FormField>
 
-        <FormField label="Nomor WhatsApp" hint="Format: 6289645646711">
-          <TextInput
-            value={form.whatsappNumber}
-            onChange={(v) => update("whatsappNumber", v)}
-          />
-        </FormField>
+        {form.backgroundImage && (
+          <div className="relative w-full h-36 sm:h-48 rounded-lg overflow-hidden border border-[#E8E1D8] bg-[#F5F3F0]">
+            <Image
+              src={form.backgroundImage}
+              alt="Hero Preview"
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 100vw, 768px"
+            />
+          </div>
+        )}
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+          <FormField label="Nomor WhatsApp" hint="Format internasional: 6289645646711">
+            <TextInput
+              value={form.whatsappNumber}
+              onChange={(v) => update("whatsappNumber", v)}
+            />
+          </FormField>
+        </div>
 
         <FormField label="Pesan Default WhatsApp">
           <TextArea

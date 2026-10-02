@@ -34,30 +34,33 @@ export default function WorkProcessEditor() {
   };
 
   return (
-    <div className="space-y-6 max-w-4xl">
+    <div className="space-y-6 max-w-4xl min-w-0">
       {form.map((step, index) => (
         <SectionCard
           key={step.id}
           title={`Langkah ${step.stepNumber}: ${step.title || "..."}`}
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             <FormField label="Nomor Langkah">
               <TextInput
                 value={step.stepNumber}
                 onChange={(v) => updateStep(index, "stepNumber", v)}
+                placeholder="01"
               />
             </FormField>
             <FormField label="Nama Icon" hint="Lucide icon name">
               <TextInput
                 value={step.iconName}
                 onChange={(v) => updateStep(index, "iconName", v)}
+                placeholder="MessageSquare, Compass..."
               />
             </FormField>
           </div>
-          <FormField label="Judul">
+          <FormField label="Judul Langkah">
             <TextInput
               value={step.title}
               onChange={(v) => updateStep(index, "title", v)}
+              placeholder="Konsultasi & Pengukuran..."
             />
           </FormField>
           <FormField label="Deskripsi">
@@ -65,6 +68,7 @@ export default function WorkProcessEditor() {
               value={step.description}
               onChange={(v) => updateStep(index, "description", v)}
               rows={3}
+              placeholder="Penjelasan proses pada tahap ini..."
             />
           </FormField>
         </SectionCard>

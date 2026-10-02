@@ -34,23 +34,25 @@ export default function WhyChooseUsEditor() {
   };
 
   return (
-    <div className="space-y-6 max-w-4xl">
+    <div className="space-y-6 max-w-4xl min-w-0">
       {form.map((item, index) => (
         <SectionCard
           key={item.id}
           title={item.title || `Keunggulan ${index + 1}`}
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <FormField label="Judul">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+            <FormField label="Judul Keunggulan">
               <TextInput
                 value={item.title}
                 onChange={(v) => updateItem(index, "title", v)}
+                placeholder="Custom Desain..."
               />
             </FormField>
             <FormField label="Nama Icon" hint="Lucide icon name">
               <TextInput
                 value={item.iconName}
                 onChange={(v) => updateItem(index, "iconName", v)}
+                placeholder="Sparkles, ShieldCheck..."
               />
             </FormField>
           </div>
@@ -59,6 +61,7 @@ export default function WhyChooseUsEditor() {
               value={item.description}
               onChange={(v) => updateItem(index, "description", v)}
               rows={3}
+              placeholder="Penjelasan keunggulan..."
             />
           </FormField>
         </SectionCard>

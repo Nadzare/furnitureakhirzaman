@@ -56,16 +56,16 @@ export default function TestimonialsEditor() {
   };
 
   return (
-    <div className="space-y-6 max-w-4xl">
+    <div className="space-y-6 max-w-4xl min-w-0">
       <SectionCard
         title="Daftar Testimoni"
-        description={`Total: ${form.length} testimoni`}
+        description={`Total: ${form.length} testimoni klien`}
       >
-        <div className="space-y-3">
+        <div className="space-y-2.5 sm:space-y-3">
           {form.map((item, index) => (
             <div
               key={item.id}
-              className="border border-[#E8E1D8] rounded-lg overflow-hidden"
+              className="border border-[#E8E1D8] rounded-xl overflow-hidden bg-white shadow-2xs"
             >
               {/* Collapsed header */}
               <div
@@ -80,29 +80,29 @@ export default function TestimonialsEditor() {
                     setExpandedIndex(expandedIndex === index ? null : index);
                   }
                 }}
-                className="w-full flex items-center justify-between px-4 py-3 bg-[#FAFAF8] hover:bg-[#F5F3F0] transition-colors cursor-pointer"
+                className="w-full flex items-center justify-between px-3 sm:px-4 py-3 bg-[#FAFAF8] hover:bg-[#F5F3F0] transition-colors cursor-pointer gap-2"
               >
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
                   {item.imageUrl ? (
-                    <div className="relative w-8 h-8 rounded-full overflow-hidden flex-shrink-0 border border-[#B08B57]/20">
+                    <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-full overflow-hidden flex-shrink-0 border border-[#B08B57]/20">
                       <Image
                         src={item.imageUrl}
                         alt={item.name}
                         fill
                         className="object-cover"
-                        sizes="32px"
+                        sizes="36px"
                       />
                     </div>
                   ) : (
-                    <div className="w-8 h-8 rounded-full bg-[#E8E1D8] flex items-center justify-center flex-shrink-0">
-                      <span className="text-xs font-sans text-[#3A2F26]/30">?</span>
+                    <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#E8E1D8] flex items-center justify-center flex-shrink-0">
+                      <span className="text-xs font-sans text-[#3A2F26]/40 font-bold">?</span>
                     </div>
                   )}
-                  <div className="text-left">
-                    <span className="text-sm font-sans font-medium text-[#3A2F26]/70 block">
+                  <div className="text-left min-w-0">
+                    <span className="text-xs sm:text-sm font-sans font-semibold text-[#3A2F26]/75 truncate block max-w-[130px] xs:max-w-[180px] sm:max-w-none">
                       {item.name || "Testimoni Baru"}
                     </span>
-                    <div className="flex items-center gap-1 mt-0.5">
+                    <div className="flex items-center gap-0.5 mt-0.5">
                       {Array.from({ length: item.rating }).map((_, i) => (
                         <Star
                           key={i}
@@ -112,47 +112,53 @@ export default function TestimonialsEditor() {
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
                       removeItem(index);
                     }}
-                    className="p-1.5 text-[#3A2F26]/20 hover:text-red-500 transition-colors cursor-pointer"
+                    aria-label={`Hapus testimoni ${item.name || index + 1}`}
+                    className="p-1.5 sm:p-2 text-[#3A2F26]/30 hover:text-red-500 rounded-lg hover:bg-red-50 transition-colors cursor-pointer"
                   >
-                    <Trash2 className="w-3.5 h-3.5" />
+                    <Trash2 className="w-4 h-4" />
                   </button>
-                  {expandedIndex === index ? (
-                    <ChevronUp className="w-4 h-4 text-[#3A2F26]/30" />
-                  ) : (
-                    <ChevronDown className="w-4 h-4 text-[#3A2F26]/30" />
-                  )}
+                  <div className="p-1 text-[#3A2F26]/30">
+                    {expandedIndex === index ? (
+                      <ChevronUp className="w-4 h-4" />
+                    ) : (
+                      <ChevronDown className="w-4 h-4" />
+                    )}
+                  </div>
                 </div>
               </div>
 
               {/* Expanded content */}
               {expandedIndex === index && (
-                <div className="px-4 py-5 space-y-4 border-t border-[#E8E1D8] bg-white">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <FormField label="Nama">
+                <div className="px-3.5 sm:px-5 py-4 sm:py-5 space-y-4 border-t border-[#E8E1D8] bg-white">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                    <FormField label="Nama Klien">
                       <TextInput
                         value={item.name}
                         onChange={(v) => updateItem(index, "name", v)}
+                        placeholder="Nama klien..."
                       />
                     </FormField>
-                    <FormField label="Peran / Jabatan">
+                    <FormField label="Peran / Profesi">
                       <TextInput
                         value={item.role}
                         onChange={(v) => updateItem(index, "role", v)}
+                        placeholder="Owner Villa / Ibu Rumah Tangga..."
                       />
                     </FormField>
                     <FormField label="Lokasi">
                       <TextInput
                         value={item.location}
                         onChange={(v) => updateItem(index, "location", v)}
+                        placeholder="Purwokerto / Yogyakarta..."
                       />
                     </FormField>
-                    <FormField label="Rating (1-5)">
+                    <FormField label="Rating Bintang (1-5)">
                       <TextInput
                         value={String(item.rating)}
                         onChange={(v) =>
@@ -171,14 +177,31 @@ export default function TestimonialsEditor() {
                     <TextInput
                       value={item.imageUrl}
                       onChange={(v) => updateItem(index, "imageUrl", v)}
+                      placeholder="https://images.unsplash.com/..."
                     />
                   </FormField>
 
-                  <FormField label="Kutipan / Quote">
+                  {item.imageUrl && (
+                    <div className="flex items-center gap-3 p-2 bg-[#F8F6F2] rounded-lg border border-[#E8E1D8]">
+                      <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border border-[#B08B57]/30">
+                        <Image
+                          src={item.imageUrl}
+                          alt={item.name || "Preview"}
+                          fill
+                          className="object-cover"
+                          sizes="48px"
+                        />
+                      </div>
+                      <span className="text-xs font-sans text-[#3A2F26]/60">Preview Foto Klien</span>
+                    </div>
+                  )}
+
+                  <FormField label="Kutipan / Quote Ulasan">
                     <TextArea
                       value={item.quote}
                       onChange={(v) => updateItem(index, "quote", v)}
                       rows={3}
+                      placeholder="Pengalaman klien menggunakan jasa Furniture Akhir Zaman..."
                     />
                   </FormField>
                 </div>
@@ -189,7 +212,7 @@ export default function TestimonialsEditor() {
 
         <button
           onClick={addItem}
-          className="flex items-center gap-2 text-[#B08B57] text-sm font-sans font-medium hover:text-[#C4A26F] transition-colors cursor-pointer mt-2"
+          className="flex items-center gap-2 text-[#B08B57] text-sm font-sans font-medium hover:text-[#C4A26F] transition-colors cursor-pointer mt-3 pt-1"
         >
           <Plus className="w-4 h-4" />
           Tambah Testimoni

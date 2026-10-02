@@ -35,71 +35,84 @@ export default function FooterEditor() {
   };
 
   return (
-    <div className="space-y-6 max-w-4xl">
+    <div className="space-y-6 max-w-4xl min-w-0">
       <SectionCard
         title="Informasi Brand"
-        description="Deskripsi singkat perusahaan yang tampil di footer."
+        description="Deskripsi singkat perusahaan yang tampil di footer website."
       >
         <FormField label="Deskripsi Brand">
           <TextArea
             value={form.brandDescription}
             onChange={(v) => update("brandDescription", v)}
             rows={4}
+            placeholder="Jelaskan profil ringkas perusahaan..."
           />
         </FormField>
       </SectionCard>
 
       <SectionCard
         title="Informasi Kontak"
-        description="Nomor telepon, email, dan area layanan."
+        description="Nomor telepon, email, dan area cakupan layanan."
       >
-        <FormField label="Area Layanan">
-          <TextInput
-            value={form.serviceAreas}
-            onChange={(v) => update("serviceAreas", v)}
-          />
-        </FormField>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4">
+          <FormField label="Area Layanan">
+            <TextInput
+              value={form.serviceAreas}
+              onChange={(v) => update("serviceAreas", v)}
+              placeholder="Purwokerto, Yogyakarta, Jakarta"
+            />
+          </FormField>
 
-        <FormField label="Nomor Telepon / WhatsApp">
-          <TextInput
-            value={form.phone}
-            onChange={(v) => update("phone", v)}
-          />
-        </FormField>
+          <FormField label="Nomor Telepon / WhatsApp">
+            <TextInput
+              value={form.phone}
+              onChange={(v) => update("phone", v)}
+              placeholder="0896-4564-6711"
+            />
+          </FormField>
 
-        <FormField label="Email">
-          <TextInput
-            value={form.email}
-            onChange={(v) => update("email", v)}
-            type="email"
-          />
-        </FormField>
+          <div className="sm:col-span-2">
+            <FormField label="Email Perusahaan">
+              <TextInput
+                value={form.email}
+                onChange={(v) => update("email", v)}
+                type="email"
+                placeholder="furnitureakhirzaman@gmail.com"
+              />
+            </FormField>
+          </div>
+        </div>
       </SectionCard>
 
       <SectionCard
         title="Media Sosial"
-        description="Link profil media sosial perusahaan."
+        description="Link profil akun media sosial resmi perusahaan."
       >
-        <FormField label="Instagram URL">
-          <TextInput
-            value={form.instagramUrl}
-            onChange={(v) => update("instagramUrl", v)}
-          />
-        </FormField>
+        <div className="space-y-3.5 sm:space-y-4">
+          <FormField label="Instagram URL">
+            <TextInput
+              value={form.instagramUrl}
+              onChange={(v) => update("instagramUrl", v)}
+              placeholder="https://instagram.com/furnitureakhirzaman"
+            />
+          </FormField>
 
-        <FormField label="Facebook URL">
-          <TextInput
-            value={form.facebookUrl}
-            onChange={(v) => update("facebookUrl", v)}
-          />
-        </FormField>
+          <FormField label="Facebook URL">
+            <TextInput
+              value={form.facebookUrl}
+              onChange={(v) => update("facebookUrl", v)}
+              placeholder="https://facebook.com/..."
+            />
+          </FormField>
 
-        <FormField label="YouTube URL">
-          <TextInput
-            value={form.youtubeUrl}
-            onChange={(v) => update("youtubeUrl", v)}
-          />
-        </FormField>
+          <FormField label="YouTube URL">
+            <TextInput
+              value={form.youtubeUrl}
+              onChange={(v) => update("youtubeUrl", v)}
+              placeholder="https://youtube.com/..."
+            />
+          </FormField>
+        </div>
       </SectionCard>
 
       <ActionBar onSave={handleSave} onReset={handleReset} />

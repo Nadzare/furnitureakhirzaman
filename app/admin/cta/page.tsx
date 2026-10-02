@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
+import Image from "next/image";
 import { useCMS } from "@/lib/cms-store";
 import {
   SectionCard,
@@ -35,7 +36,7 @@ export default function CTAEditor() {
   };
 
   return (
-    <div className="space-y-6 max-w-4xl">
+    <div className="space-y-6 max-w-4xl min-w-0">
       <SectionCard
         title="Konten CTA"
         description="Teks call-to-action untuk mendorong pengunjung menghubungi via WhatsApp."
@@ -44,6 +45,7 @@ export default function CTAEditor() {
           <TextInput
             value={form.subtitle}
             onChange={(v) => update("subtitle", v)}
+            placeholder="Konsultasi Gratis..."
           />
         </FormField>
 
@@ -51,6 +53,7 @@ export default function CTAEditor() {
           <TextInput
             value={form.heading}
             onChange={(v) => update("heading", v)}
+            placeholder="Siap Mewujudkan Interior Impian Anda?"
           />
         </FormField>
 
@@ -66,6 +69,7 @@ export default function CTAEditor() {
           <TextInput
             value={form.ctaText}
             onChange={(v) => update("ctaText", v)}
+            placeholder="Konsultasi via WhatsApp"
           />
         </FormField>
       </SectionCard>
@@ -78,8 +82,21 @@ export default function CTAEditor() {
           <TextInput
             value={form.backgroundImage}
             onChange={(v) => update("backgroundImage", v)}
+            placeholder="https://images.unsplash.com/..."
           />
         </FormField>
+
+        {form.backgroundImage && (
+          <div className="relative w-full h-36 sm:h-48 rounded-lg overflow-hidden border border-[#E8E1D8] bg-[#F5F3F0]">
+            <Image
+              src={form.backgroundImage}
+              alt="CTA Background Preview"
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 100vw, 768px"
+            />
+          </div>
+        )}
 
         <FormField label="Nomor WhatsApp" hint="Format: 6289645646711">
           <TextInput
