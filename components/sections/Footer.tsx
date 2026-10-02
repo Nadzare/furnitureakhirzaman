@@ -206,7 +206,7 @@ export default function Footer() {
         </p>
         <div className="flex items-center gap-6">
           <p>
-            Designed with <span className="text-gold">❤</span> for Excellence.
+            Designed for Excellence.
           </p>
           <button
             onClick={handleScrollTop}
