@@ -93,6 +93,8 @@ export default function AdminSidebar() {
   const handleLogout = () => {
     if (typeof window !== "undefined") {
       localStorage.removeItem("faz_auth");
+      document.cookie =
+        "faz_auth=; path=/; max-age=0; expires=Thu, 01 Jan 1970 00:00:00 GMT";
     }
     closeMobileSidebar();
     router.push("/admin/login");

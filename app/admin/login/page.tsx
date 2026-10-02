@@ -32,6 +32,18 @@ export default function AdminLoginPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
+  // If already logged in, redirect straight to dashboard
+  useState(() => {
+    if (typeof window !== "undefined") {
+      const isAuth =
+        localStorage.getItem("faz_auth") === "true" ||
+        document.cookie.split("; ").some((row) => row.startsWith("faz_auth=true"));
+      if (isAuth) {
+        router.replace("/admin");
+      }
+    }
+  });
+
   const fillDemoCredentials = () => {
     setEmail(DEMO_EMAIL);
     setPassword(DEMO_PASSWORD);
@@ -58,6 +70,8 @@ export default function AdminLoginPage() {
         setIsSuccess(true);
         if (typeof window !== "undefined") {
           localStorage.setItem("faz_auth", "true");
+          document.cookie =
+            "faz_auth=true; path=/; max-age=604800; SameSite=Lax";
           if (rememberMe) {
             localStorage.setItem("faz_remember_email", normalizedEmail);
           }
